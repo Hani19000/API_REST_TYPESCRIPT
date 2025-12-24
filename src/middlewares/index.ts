@@ -6,7 +6,7 @@ import { getUserBySessionToken } from "../db/users";
 export const isOwner = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
     try{
         const { id } = req.params;
-        const currentUserId = get(req, "identity_id") as string;
+        const currentUserId = get(req, "identity._id") as string;
 
         if(!currentUserId){
             return res.sendStatus(403);
@@ -28,7 +28,7 @@ export const isAuthenticated = async (req: express.Request, res: express.Respons
         const sessionToken = req.cookies["Hani"];
 
         if(!sessionToken){
-            return res.status(403);
+            return res.sendStatus(403);
         }
 
         const existingUser = await getUserBySessionToken(sessionToken);

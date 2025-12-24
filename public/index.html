@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .welcome-container {
+            text-align: center;
+        }
+        
+        .welcome-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .welcome-container p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .button-group .btn {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container welcome-container">
+        <h1>Bienvenue !</h1>
+        <p>Système d'authentification avec API REST</p>
+        
+        <div class="button-group">
+            <a href="login.html" style="text-decoration: none; flex: 1;">
+                <button class="btn">Se connecter</button>
+            </a>
+            <a href="register.html" style="text-decoration: none; flex: 1;">
+                <button class="btn">S'inscrire</button>
+            </a>
+        </div>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e0e0e0;">
+            <h3 style="color: #555; margin-bottom: 1rem;">Fonctionnalités</h3>
+            <ul style="text-align: left; color: #666; line-height: 1.8;">
+                <li>✓ Inscription avec email et mot de passe</li>
+                <li>✓ Connexion sécurisée avec cookies</li>
+                <li>✓ Tableau de bord utilisateur</li>
+                <li>✓ Modification du profil</li>
+                <li>✓ Suppression du compte</li>
+                <li>✓ Liste de tous les utilisateurs</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Rediriger vers le dashboard si déjà connecté
+        const user = localStorage.getItem('user');
+        if (user) {
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

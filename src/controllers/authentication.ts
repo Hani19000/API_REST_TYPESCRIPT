@@ -4,6 +4,36 @@ import { getUserByEmail, createUser } from "../db/users";
 import { random, authentication } from "../helpers";
 
 
+export const register = async (req: express.Request, res: express.Response) => {
+    try{
+        const {username, email, password} = req.body;
+
+        if(!username || !email || !password){
+            return res.status(400);
+        }
+
+        const existingUser = await getUserByEmail(email);
+
+        if(existingUser){
+            return res.status(400);
+        }
+        const salt = random();
+        const user = await createUser({
+            username,
+            email,
+            authentication: {
+                salt,
+                password: authentication(salt, password),
+            },
+        });
+        return res.status(200).json(user).end();
+    } catch (error){
+        console.log(error);
+        return res.sendStatus(400);
+    }
+}
+
+
 export const login = async (req: express.Request, res: express.Response) => {
     try{
         const {email, password} = req.body;
@@ -29,36 +59,6 @@ export const login = async (req: express.Request, res: express.Response) => {
         await user.save();
 
         res.cookie("Hani", user.authentication.sessionToken, {domain: "localhost", path: "/", });
-        return res.status(200).json(user).end();
-    } catch (error){
-        console.log(error);
-        return res.sendStatus(400);
-    }
-}
-
-
-export const register = async (req: express.Request, res: express.Response) => {
-    try{
-        const {username, email, password} = req.body;
-
-        if(!username || !email || !password){
-            return res.status(400);
-        }
-
-        const existingUser = await getUserByEmail(email);
-
-        if(existingUser){
-            return res.status(400);
-        }
-        const salt = random();
-        const user = await createUser({
-            username,
-            email,
-            authentication: {
-                salt,
-                password: authentication(salt, password),
-            },
-        });
         return res.status(200).json(user).end();
     } catch (error){
         console.log(error);

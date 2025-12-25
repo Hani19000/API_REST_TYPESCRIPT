@@ -1,0 +1,117 @@
+/* =========================
+   RESET DE BASE
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+.container {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* =========================
+   TITRES
+========================= */
+h1, h2 {
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+/* =========================
+   FORMULAIRES
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+button {
+  padding: 0.75rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #5a67d8;
+}
+
+/* =========================
+   LIENS
+========================= */
+a {
+  text-decoration: none;
+  color: #667eea;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   TEXTE SECONDAIRE
+========================= */
+p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 400px) {
+  .container {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}

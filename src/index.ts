@@ -6,7 +6,7 @@ import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
+import path from "path";
 import router from "./router";
 
 
@@ -36,3 +36,5 @@ mongoose.connection.on("error", (error : Error) => {
 });
 
 app.use("/", router());
+
+app.use(express.static(path.join(__dirname, "../public")));

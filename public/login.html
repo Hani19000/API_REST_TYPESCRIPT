@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page de connexion</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,15 +11,28 @@
     <h2>Connexion</h2>
 
     <form id="loginForm">
-        <input id="email" type="email" placeholder="Email" required />
-        <input id="password" type="password" placeholder="Mot de passe" required />
+        <input 
+            id="email" 
+            name="email"
+            type="email" 
+            placeholder="Email" 
+            autocomplete="email"
+            required 
+        />
+        <input 
+            id="password" 
+            name="password"
+            type="password" 
+            placeholder="Mot de passe" 
+            autocomplete="current-password"
+            required 
+        />
         <button type="submit">Connexion</button>
     </form>
 
     <a href="register.html">Créer un compte</a>
 </div>
 
-<script src="js/auth.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
-
